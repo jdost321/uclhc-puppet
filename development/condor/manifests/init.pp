@@ -1,13 +1,13 @@
-class condor {
+class condor ($condor_version = 'latest', $gwms_version = 'latest') {
   require osg_repos
 
   package { 'condor':
-    ensure => 'latest',
+    ensure => $condor_version,
     provider => 'yum',
     install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
   } ->
   package { 'glideinwms-userschedd':
-    ensure => 'latest',
+    ensure => $gwms_version,
     provider => 'yum',
     install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
   }
