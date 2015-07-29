@@ -1,4 +1,4 @@
-class condor ($condor_version = 'latest', $gwms_version = 'latest', $submit_site_attr = '') {
+class condor ($condor_version = 'latest', $gwms_version = 'latest', $submit_site_name = '') {
   require osg_repos
 
   package { 'condor':
