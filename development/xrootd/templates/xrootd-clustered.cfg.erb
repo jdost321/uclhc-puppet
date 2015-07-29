@@ -1,0 +1,28 @@
+# The export directive indicates which paths are to be exported.
+all.export /data/user
+
+if named rdr
+  all.role manager
+  xrd.port 1094
+else if named srv
+  all.role server
+  xrd.port any
+fi
+
+# The cmsd running on a data server node needs to know where the redirector
+# (i.e. manager) is running.
+all.manager <%= @fqdn %> 3121
+all.manager meta uclhc-fe-1.t2.ucsd.edu 3121
+
+# The copycmd directive tells the frm_xfrd what to use to copy files into
+# an exported path with the 'stage' attribute. Here we just say this will
+# be '/bin/cp' to allow the frm_xfrd to actual start to show that it works.
+# Here missing files are created in /tmp as zero-length files.
+#
+frm.xfr.copycmd /bin/cp /dev/null $PFN
+
+# The adminpath and pidpath variables indicate where the pid and various
+# IPC files should be placed
+#
+all.adminpath /var/spool/xrootd
+all.pidpath /var/run/xrootd
