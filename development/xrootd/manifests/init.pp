@@ -7,6 +7,11 @@ class xrootd ($xrootd_version = 'latest') {
     install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
   }
 
+  file { '/data/user/':
+    ensure => 'directory',
+    owner => 'xrootd',
+    group => 'xrootd'
+  }
   file_line { 'xrd_rdr_opt':
     path => '/etc/sysconfig/xrootd',
     line => 'XROOTD_RDR_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
@@ -19,12 +24,12 @@ class xrootd ($xrootd_version = 'latest') {
   }
   file_line { 'cmsd_rdr_opt':
     path => '/etc/sysconfig/xrootd',
-    line => 'CMSD_RDR_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
+    line => 'CMSD_RDR_OPTIONS="-l /var/log/xrootd/cmsd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
     require => Package['xrootd']
   }
   file_line { 'cmsd_srv_opt':
     path => '/etc/sysconfig/xrootd',
-    line => 'CMSD_SRV_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
+    line => 'CMSD_SRV_OPTIONS="-l /var/log/xrootd/cmsd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
     require => Package['xrootd']
   }
   file_line { 'xrd_instances':
