@@ -1,0 +1,8 @@
+SUBMIT_SITE = "<%= @submit_site_attr %>"
+local = True
+site_local = True
+sdsc = True
+osg = False
+SUBMIT_SITE_ATTRS = local site_local sdsc osg
+SUBMIT_EXPRS = $(SUBMIT_EXPRS) SUBMIT_SITE $(SUBMIT_SITE_ATTRS)
+START = local=?=True

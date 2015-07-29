@@ -1,4 +1,4 @@
-class condor ($condor_version = 'latest', $gwms_version = 'latest') {
+class condor ($condor_version = 'latest', $gwms_version = 'latest', $submit_site_attr = '') {
   require osg_repos
 
   package { 'condor':
@@ -32,6 +32,11 @@ class condor ($condor_version = 'latest', $gwms_version = 'latest') {
     source => 'puppet:///modules/condor/92_uclhc_flock_to.config',
     require => Package['condor']
   }
+  file {'/etc/condor/config.d/95_submit_tweaks.config':
+    ensure => 'present',
+    content => template('condor/95_submit_tweaks.config.erb'),
+    require => Package['condor']
+  }
 
   service { 'condor':
     enable => 'true',
@@ -39,10 +44,11 @@ class condor ($condor_version = 'latest', $gwms_version = 'latest') {
     require => Package['condor'],
     subscribe => [
       Package['glideinwms-userschedd'],
-      File['/etc/condor/config.d/91_single_host.config',
-        '/etc/condor/config.d/92_uclhc_flock_to.config',
+      File['/etc/condor/certs/condor_mapfile',
         '/etc/condor/config.d/90_gwms_dns.config',
-        '/etc/condor/certs/condor_mapfile'
+        '/etc/condor/config.d/91_single_host.config',
+        '/etc/condor/config.d/92_uclhc_flock_to.config',
+        '/etc/condor/config.d/95_submit_tweaks.config'
       ]]
   }
 }
