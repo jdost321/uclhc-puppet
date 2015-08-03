@@ -1,0 +1,7 @@
+#!/bin/bash
+export CMS_XROOTD_CACHE="localhost:1094/"
+export ATLAS_XROOTD_CACHE="localhost:1096/"
+exec "$@"
+error=$?
+echo "Failed to exec($error): $@" > $_CONDOR_WRAPPER_ERROR_FILE
+exit 1
