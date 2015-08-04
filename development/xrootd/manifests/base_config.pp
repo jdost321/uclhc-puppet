@@ -9,6 +9,11 @@ class xrootd::base_config {
     line => 'XROOTD_SRV_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
     require => Package['xrootd']
   }
+  file_line { 'xrd_proxy_opt':
+    path => '/etc/sysconfig/xrootd',
+    line => 'XROOTD_PROXY_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-proxy.cfg -k fifo"',
+    require => Package['xrootd']
+  }
   file_line { 'cmsd_rdr_opt':
     path => '/etc/sysconfig/xrootd',
     line => 'CMSD_RDR_OPTIONS="-l /var/log/xrootd/cmsd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
@@ -21,7 +26,7 @@ class xrootd::base_config {
   }
   file_line { 'xrd_instances':
     path => '/etc/sysconfig/xrootd',
-    line => 'XROOTD_INSTANCES="rdr srv"',
+    line => 'XROOTD_INSTANCES="rdr srv proxy"',
     match => '^XROOTD_INSTANCES=',
     require => Package['xrootd']
   }
