@@ -1,5 +1,5 @@
 class xrootd::cluster_config {
-  file { '/data/user/':
+  file { ['/data/uclhc', "/data/uclhc/${xrootd::xrd_dir}", "/data/uclhc/${xrootd::xrd_dir}/user"]:
     ensure => 'directory',
     owner => 'xrootd',
     group => 'xrootd'
