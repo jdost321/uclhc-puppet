@@ -15,6 +15,7 @@ class xrootd ($xrootd_version = 'latest', $xrd_dir = $fqdn) {
   include xrootd::base_config
   include xrootd::cluster_config
   include xrootd::proxy_config
+  include xrootd::grid_proxy
 
   service { 'xrootd':
     enable => 'true',

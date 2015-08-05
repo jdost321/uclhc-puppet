@@ -1,0 +1,5 @@
+#!/bin/bash
+
+voms-proxy-init -cert /etc/grid-security/hostcert.pem -key /etc/grid-security/hostkey.pem -out /tmp/proxy.new -hours 72 -voms atlas && \
+chown xrootd:xrootd /tmp/proxy.new && \
+mv /tmp/proxy.new /tmp/xrd_proxy
