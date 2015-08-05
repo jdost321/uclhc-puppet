@@ -13,6 +13,13 @@ class condor::batch_config {
     mode    => '755'
   }
 
+  file {'90_ganglia_tweaks.config':
+    content => template('condor/90_ganglia_tweaks.config.erb'),
+    require => Package['condor'],
+    ensure  => 'present',
+    path    => '/etc/condor/config.d/90_ganglia_tweaks.config',
+  }
+
   file {'96_xrootd_env_tweaks.config':
     ensure  => 'present',
     source  => 'puppet:///modules/condor/96_xrootd_env_tweaks.config',

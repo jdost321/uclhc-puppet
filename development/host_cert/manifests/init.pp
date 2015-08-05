@@ -1,4 +1,4 @@
-class host_cert {
+class host_cert ($host = $fqdn) {
   file { '/etc/grid-security':
     ensure => 'directory',
     owner => 'root',
@@ -7,7 +7,7 @@ class host_cert {
   }
   file { '/etc/grid-security/hostcert.pem':
     ensure => 'present',
-    source => "puppet:///modules/host_cert/${fqdn}-hostcert.pem",
+    source => "puppet:///modules/host_cert/${host}-hostcert.pem",
     owner => 'root',
     group => 'root',
     mode => '0644',
@@ -15,7 +15,7 @@ class host_cert {
   }
   file { '/etc/grid-security/hostkey.pem':
     ensure => 'present',
-    source => "puppet:///modules/host_cert/${fqdn}-hostkey.pem",
+    source => "puppet:///modules/host_cert/${host}-hostkey.pem",
     owner => 'root',
     group => 'root',
     mode => '0600',

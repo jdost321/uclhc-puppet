@@ -1,4 +1,8 @@
-class condor ($condor_version = 'latest', $gwms_version = 'latest', $submit_site_name = '') {
+class condor ($condor_version = 'latest',
+              $gwms_version = 'latest',
+              $submit_site_name = '',
+              $ganglia_server = 'uclhc-fe-1.t2.ucsd.edu')
+{
   require osg_repos
 
   package { 'condor':
