@@ -1,4 +1,4 @@
-class xrootd ($xrootd_version = 'latest', $xrd_dir = $fqdn) {
+class xrootd ($xrootd_version = 'latest', $xrd_dir = $fqdn, $update_proxy = true) {
   require osg_repos
 
   package { 'xrootd':
