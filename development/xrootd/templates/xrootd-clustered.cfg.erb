@@ -4,7 +4,7 @@ oss.localroot /data
 
 if named rdr
   all.role manager
-  xrd.port 1094
+  xrd.port <%= scope['xrootd::xrd_port'] %>
 else if named srv
   all.role server
   xrd.port any
@@ -13,7 +13,7 @@ fi
 # The cmsd running on a data server node needs to know where the redirector
 # (i.e. manager) is running.
 all.manager <%= @fqdn %> 3121
-all.manager meta uclhc-fe-1.t2.ucsd.edu 3121
+all.manager meta uclhc-fe-1.t2.ucsd.edu <%= scope['xrootd::meta_cmsd_port'] %>
 
 # The copycmd directive tells the frm_xfrd what to use to copy files into
 # an exported path with the 'stage' attribute. Here we just say this will
