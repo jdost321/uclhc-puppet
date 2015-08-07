@@ -1,5 +1,5 @@
 class xrootd::proxy_config {
-  file { '/data/cache/':
+  file { ['/data/cache/','/data/cache/atlas','/data/cache/cms']:
     ensure => 'directory',
     owner => 'xrootd',
     group => 'xrootd'

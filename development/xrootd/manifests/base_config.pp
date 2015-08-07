@@ -9,9 +9,14 @@ class xrootd::base_config {
     line => 'XROOTD_SRV_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',
     require => Package['xrootd']
   }
-  file_line { 'xrd_proxy_opt':
+  file_line { 'xrd_atlas_proxy_opt':
     path => '/etc/sysconfig/xrootd',
-    line => 'XROOTD_PROXY_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-proxy.cfg -k fifo"',
+    line => 'XROOTD_ATLAS_PROXY_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-proxy.cfg -k fifo"',
+    require => Package['xrootd']
+  }
+  file_line { 'xrd_cms_proxy_opt':
+    path => '/etc/sysconfig/xrootd',
+    line => 'XROOTD_CMS_PROXY_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-proxy.cfg -k fifo"',
     require => Package['xrootd']
   }
   file_line { 'cmsd_rdr_opt':
@@ -26,7 +31,7 @@ class xrootd::base_config {
   }
   file_line { 'xrd_instances':
     path => '/etc/sysconfig/xrootd',
-    line => 'XROOTD_INSTANCES="rdr srv proxy"',
+    line => 'XROOTD_INSTANCES="rdr srv atlas_proxy cms_proxy"',
     match => '^XROOTD_INSTANCES=',
     require => Package['xrootd']
   }
