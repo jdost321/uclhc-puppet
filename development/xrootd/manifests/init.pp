@@ -3,7 +3,9 @@ class xrootd (
     $xrd_port = '1094',
     $meta_cmsd_port = '3121',
     $xrd_dir = $fqdn,
-    $update_proxy = true
+    $update_proxy = true,
+    $disable_atlas_proxy = false,
+    $disable_cms_proxy = false
   ) {
   require osg_repos
 
