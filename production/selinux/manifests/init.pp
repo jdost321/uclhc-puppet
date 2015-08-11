@@ -11,14 +11,17 @@
 # The host and port of the http_proxy
 #             
 class selinux (
-  $enabled    = '0',
+  $sestatus    = '0',
+  $mode        = 'Permissive'
 )
 {
-  file {'/selinux/enforce':
-    ensure  => 'present',
-    content => '$enabled',
-    }
 
+  exec { "change-selinux-status-to-${mode}":
+    command => "setenforce ${sestatus}",
+    unless  => "getenforce | grep -qi \"${mode}\\|disabled\"",
+    path    => '/bin:/usr/bin:/usr/sbin',
+  }
+      
   file {'/etc/selinux/config':
     ensure  => 'present',
     source => 'puppet:///modules/selinux/config'
