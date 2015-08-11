@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for vo in "$@";do
+  voms-proxy-init -cert /etc/grid-security/hostcert.pem -key /etc/grid-security/hostkey.pem -out /tmp/proxy.new -hours 72 -voms $vo && \
+  chown xrootd:xrootd /tmp/proxy.new && \
+  mv /tmp/proxy.new /tmp/xrd_${vo}_proxy
+done
