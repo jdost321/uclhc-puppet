@@ -19,6 +19,8 @@ class cvmfs::install (
     )
 {
     include osg_repos
+    include selinux
+  
     package{ 'osg-oasis':
            ensure   => $package_ensure,
            provider => 'yum',
