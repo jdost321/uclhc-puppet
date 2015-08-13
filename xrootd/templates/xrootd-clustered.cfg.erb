@@ -8,6 +8,11 @@ if named rdr
 else if named srv
   all.role server
   xrd.port any
+
+  # enable voms security for data server
+  xrootd.seclib /usr/lib64/libXrdSec.so
+  sec.protparm gsi -vomsfun:/usr/lib64/libXrdSecgsiVOMS.so -vomsfunparms:certfmt=raw|vos=<%= scope['xrootd::vo'] %>|dbg -vomsat:2l
+  sec.protocol /usr/lib64 gsi -ca:1 -crl:3
 fi
 
 # The cmsd running on a data server node needs to know where the redirector
