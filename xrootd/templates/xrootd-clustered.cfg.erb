@@ -7,7 +7,7 @@ if named rdr
   xrd.port <%= scope['xrootd::xrd_port'] %>
 else if named srv
   all.role server
-  xrd.port any
+  xrd.port 1093
 
   # enable voms security for data server
   xrootd.seclib /usr/lib64/libXrdSec.so
