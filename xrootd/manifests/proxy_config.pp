@@ -1,8 +1,14 @@
 class xrootd::proxy_config {
-  file { ['/data/cache/','/data/cache/atlas','/data/cache/cms']:
+  file { ['/data/cache/']:
+    ensure => 'directory',
+    owner => 'root',
+    group => 'root'
+  } ->
+  file { ['/data/cache/atlas','/data/cache/cms']:
     ensure => 'directory',
     owner => 'xrootd',
-    group => 'xrootd'
+    group => 'xrootd',
+    mode => '0700'
   }
 
   file { '/etc/xrootd/xrootd-proxy.cfg':

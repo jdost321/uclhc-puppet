@@ -1,8 +1,8 @@
 class xrootd::cluster_config {
   file { ['/data/uclhc', "/data/uclhc/${xrootd::xrd_dir}", "/data/uclhc/${xrootd::xrd_dir}/user"]:
     ensure => 'directory',
-    owner => 'xrootd',
-    group => 'xrootd'
+    owner => 'root',
+    group => 'root'
   }
 
   file { '/etc/xrootd/xrootd-clustered.cfg':
