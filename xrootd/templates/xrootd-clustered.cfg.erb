@@ -11,7 +11,7 @@ else if named srv
 
   # enable voms security for data server
   xrootd.seclib /usr/lib64/libXrdSec.so
-  sec.protparm gsi -vomsfun:/usr/lib64/libXrdSecgsiVOMS.so -vomsfunparms:certfmt=raw|vos=<%= scope['xrootd::vo'] %>|dbg -vomsat:2l
+  sec.protparm gsi -vomsfun:/usr/lib64/libXrdSecgsiVOMS.so -vomsfunparms:certfmt=raw|vos=<%= scope['xrootd::vo'] %>|dbg -vomsat:2
   sec.protocol /usr/lib64 gsi -ca:1 -crl:3
 fi
 
