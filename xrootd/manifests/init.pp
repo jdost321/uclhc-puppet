@@ -32,6 +32,7 @@ class xrootd (
   include xrootd::proxy_config
   include xrootd::grid_proxy
   include xrootd::service_cert
+  include xrootd::user_enviroment
 
   service { 'xrootd':
     enable => 'true',
