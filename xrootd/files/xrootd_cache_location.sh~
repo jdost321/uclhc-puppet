@@ -1,4 +1,0 @@
-#!/bin/bash                                                                                                                                                  
-hostname=`hostname`
-export CMS_XROOTD_CACHE="$hostname":4095
-export ATLAS_XROOTD_CACHE="$hostname":4094
