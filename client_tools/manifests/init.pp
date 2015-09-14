@@ -23,4 +23,16 @@ class client_tools {
     provider        => 'yum',
     install_options => [{'--enablerepo' => 'epel'}]
   }
+
+  package { 'screen':
+    ensure          => 'present',
+    provider        => 'yum',
+    install_options => [{'--enablerepo' => 'epel'}]
+  }
+
+  package { 'tmux':
+    ensure          => 'present',
+    provider        => 'yum',
+    install_options => [{'--enablerepo' => 'epel'}]
+  }
 }
