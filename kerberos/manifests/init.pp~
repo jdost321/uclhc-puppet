@@ -1,0 +1,16 @@
+class kerberos ()
+
+  package { 'krb5-workstation':
+    ensure => 'latest',
+    provider => 'yum',
+    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
+  }
+
+  file { '/etc/krb5.conf':
+    ensure => 'present',
+    content => 'puppet:///modules/kerberos/krb5.conf'
+    require => Package['krb5-workstation']
+  }
+  
+
+}
