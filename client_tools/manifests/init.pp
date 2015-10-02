@@ -13,25 +13,30 @@ class client_tools {
   }
 
   package { 'git':
-    ensure          => 'present',
+    ensure          => 'latest',
     provider        => 'yum',
     install_options => [{'--enablerepo' => 'epel'}]
   }
 
   package { 'subversion':
-    ensure          => 'present',
+    ensure          => 'latest',
     provider        => 'yum',
     install_options => [{'--enablerepo' => 'epel'}]
   }
 
   package { 'screen':
-    ensure          => 'present',
+    ensure          => 'latest',
     provider        => 'yum',
     install_options => [{'--enablerepo' => 'epel'}]
   }
 
   package { 'tmux':
-    ensure          => 'present',
+    ensure          => 'latest',
+    provider        => 'yum',
+    install_options => [{'--enablerepo' => 'epel'}]
+  }
+  package { 'gcc':
+    ensure          => 'latest',
     provider        => 'yum',
     install_options => [{'--enablerepo' => 'epel'}]
   }
