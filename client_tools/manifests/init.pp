@@ -40,4 +40,9 @@ class client_tools {
     provider        => 'yum',
     install_options => [{'--enablerepo' => 'epel'}]
   }
+  package { 'libxml2-devel':
+    ensure          => 'latest',
+    provider        => 'yum',
+    install_options => [{'--enablerepo' => 'epel'}]
+  }
 }
