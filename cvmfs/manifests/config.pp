@@ -22,7 +22,7 @@
 #
 class cvmfs::config (
     $cache_base_dir = '/var/cache/cvmfs',
-    $quota_limit    = "20000",
+    $quota_limit    = "40000",
     $http_proxy     = "localhost:3128",
     )
 {

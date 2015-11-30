@@ -22,12 +22,14 @@ class frontier-squid::config ()
   }
   exec { 'customize.sh':
         command => '/etc/squid/customize.sh',
-        path    => ["/usr/bin", "/usr/sbin"]
+        path    => ["/usr/bin", "/usr/sbin"],
+        refreshonly => true,
       }
 
   exec { 'reload':
     command => 'service frontier-squid reload',
-    path    => ["/usr/bin", "/usr/sbin", "/sbin"]
+    path    => ["/usr/bin", "/usr/sbin", "/sbin"],
+    refreshonly => true,
   }
 
   service { 'frontier-squid':
