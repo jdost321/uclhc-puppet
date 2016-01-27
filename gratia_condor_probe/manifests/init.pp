@@ -23,7 +23,7 @@
 #
 class gratia_condor_probe (
   $package_ensure = 'installed',
-  $site_name      = 'UCSD',
+  $site_name      = 'UCSD-test',
   $vo             = 'cms',
 )
 {
