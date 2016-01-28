@@ -1,4 +1,13 @@
-*.pem
+# ignore standard stuff
 *.swp
 *~
+
+# ignore private stuff
+*.pem
 uclhc-admin/files/
+
+# ignore puppetlab installed modules
+accounts/
+inifile/
+ntp/
+stdlib/
