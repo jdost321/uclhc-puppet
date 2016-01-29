@@ -4,7 +4,6 @@ class condor::gwms_config {
   package { 'glideinwms-userschedd':
     ensure => $condor::gwms_version,
     provider => 'yum',
-    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}],
     require => Package['condor']
   }
   file { '/etc/condor/certs/condor_mapfile':

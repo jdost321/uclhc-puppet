@@ -7,8 +7,7 @@ class condor ($condor_version = 'latest',
 
   package { 'condor':
     ensure => $condor_version,
-    provider => 'yum',
-    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
+    provider => 'yum'
   }
 
   include condor::gwms_config

@@ -22,11 +22,7 @@ class frontier-squid::install (
     package{ 'frontier-squid':
            ensure   => $package_ensure,
            provider => 'yum',
-           name     => "frontier-squid",
-           install_options => [{'--enablerepo' => 'epel'},
-                               {'--enablerepo' => 'osg'}
-           ]
-               
+           name     => "frontier-squid"
          }
     
 

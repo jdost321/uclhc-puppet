@@ -24,10 +24,7 @@ class cvmfs::install (
     package{ 'osg-oasis':
            ensure   => $package_ensure,
            provider => 'yum',
-           name     => "osg-oasis",
-           install_options => [{'--enablerepo' => 'epel'},
-                               {'--enablerepo' => 'osg'}
-                               ]
+           name     => "osg-oasis"
          }
     
 

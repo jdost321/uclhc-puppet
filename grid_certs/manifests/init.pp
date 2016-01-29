@@ -3,13 +3,11 @@ class grid_certs {
 
   package { 'osg-ca-certs':
     ensure => 'latest',
-    provider => 'yum',
-    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
+    provider => 'yum'
   }
   package { 'fetch-crl':
     ensure => 'latest',
-    provider => 'yum',
-    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
+    provider => 'yum'
   }
 
   service { 'fetch-crl-boot':

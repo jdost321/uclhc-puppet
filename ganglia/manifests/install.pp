@@ -22,10 +22,7 @@ class ganglia::install (
     package{ 'ganglia-gmond':
            ensure   => $package_ensure,
            provider => 'yum',
-           name     => "ganglia-gmond",
-           install_options => [{'--enablerepo' => 'epel'},
-                               {'--enablerepo' => 'osg'}
-                               ]
+           name     => "ganglia-gmond"
          }
     
 

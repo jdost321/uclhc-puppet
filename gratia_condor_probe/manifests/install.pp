@@ -22,10 +22,7 @@ class gratia_condor_probe::install (
     package{ 'gratia-probe-condor':
            ensure   => $package_ensure,
            provider => 'yum',
-           name     => "gratia-probe-condor",
-           install_options => [{'--enablerepo' => 'epel'},
-                               {'--enablerepo' => 'osg'}
-                               ]
+           name     => "gratia-probe-condor"
          }
 
 }

@@ -13,18 +13,15 @@ class xrootd (
 
   package { 'xrootd':
     ensure => $xrootd_version,
-    provider => 'yum',
-    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
+    provider => 'yum'
   }
   package { 'xrootd-voms-plugin':
     ensure => $xrootd_version,
-    provider => 'yum',
-    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
+    provider => 'yum'
   }
   package { 'xrootd-client':
     ensure => $xrootd_version,
-    provider => 'yum',
-    install_options => [{'--enablerepo' => 'epel'}, {'--enablerepo' => 'osg'}]
+    provider => 'yum'
   }
 
   include xrootd::base_config
