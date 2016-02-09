@@ -37,4 +37,8 @@ class client_tools {
     ensure          => 'latest',
     provider        => 'yum'
   }
+  package { 'boost-devel':
+    ensure          => 'latest',
+    provider        => 'yum'
+  }
 }
