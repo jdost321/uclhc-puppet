@@ -5,7 +5,7 @@ class client_tools {
     ensure          => 'latest',
     provider        => 'yum'
   }
-  package { 'voms-clients':
+  package { 'voms-clients-cpp':
     ensure          => 'latest',
     provider        => 'yum'
   }
