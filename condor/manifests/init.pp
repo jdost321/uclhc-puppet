@@ -1,7 +1,9 @@
 class condor ($condor_version = 'latest',
               $gwms_version = 'latest',
               $submit_site_name = '',
-              $ganglia_server = 'uclhc-fe-1.t2.ucsd.edu')
+              $ganglia_server = 'uclhc-fe-1.t2.ucsd.edu',
+              $enable_condor_c = false,
+              $vo = 'atlas')
 {
   require osg_repos
 
@@ -10,6 +12,7 @@ class condor ($condor_version = 'latest',
     provider => 'yum'
   }
 
+  include condor::auth_config
   include condor::gwms_config
   include condor::batch_config
 
@@ -17,6 +20,6 @@ class condor ($condor_version = 'latest',
     enable => 'true',
     ensure => 'running',
     require => Package['condor'],
-    subscribe => Class['condor::gwms_config', 'condor::batch_config']
+    subscribe => Class['condor::auth_config', 'condor::gwms_config', 'condor::batch_config']
   }
 }

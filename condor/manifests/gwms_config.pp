@@ -6,11 +6,6 @@ class condor::gwms_config {
     provider => 'yum',
     require => Package['condor']
   }
-  file { '/etc/condor/certs/condor_mapfile':
-    ensure => 'present',
-    source => 'puppet:///modules/condor/condor_mapfile',
-    require => Package['condor']
-  }
   file { '/etc/condor/config.d/90_gwms_dns.config':
     ensure => 'present',
     source => 'puppet:///modules/condor/90_gwms_dns.config',
