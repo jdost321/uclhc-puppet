@@ -8,7 +8,8 @@ class xrootd::proxy_config {
     ensure => 'directory',
     owner => 'xrootd',
     group => 'xrootd',
-    mode => '0700'
+    mode => '0700',
+    require => Package['xrootd']
   }
 
   file { '/etc/xrootd/xrootd-proxy.cfg':
