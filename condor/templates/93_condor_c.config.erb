@@ -1,6 +1,6 @@
 # harden security by user
-ALLOW_WRITE = condor@$(UID_DOMAIN)/$(CONDOR_HOST), pilot@$(UID_DOMAIN)/*
+ALLOW_WRITE = condor@$(UID_DOMAIN)/*, pilot@$(UID_DOMAIN)/*
 HOSTALLOW_WRITE =
 
-# only allow submission from this host and UC specific submit host
-ALLOW_WRITE_SCHEDD = *@$(UID_DOMAIN)/$(CONDOR_HOST), <%= scope['condor::vo'] %>user@$(UID_DOMAIN)/<%= scope['condor::condor_c_host'] %>
+# only allow submission from this domain
+ALLOW_WRITE_SCHEDD = *@$(UID_DOMAIN)/*
