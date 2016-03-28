@@ -4,6 +4,7 @@ class condor ($condor_version = 'latest',
               $ganglia_server = 'uclhc-fe-1.t2.ucsd.edu',
               $enable_condor_c = false,
               $condor_c_host = $fqdn,
+              $uid_domain = $fqdn,
               $vo = 'atlas')
 {
   require osg_repos
