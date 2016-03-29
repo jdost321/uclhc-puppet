@@ -11,3 +11,7 @@ ALLOW_DAEMON = $(ALLOW_WRITE), submit-side@matchsession/*$(UID_DOMAIN)
 ALLOW_DAEMON = $(ALLOW_DAEMON), condor@$(UID_DOMAIN)/uclhctest.t2.ucsd.edu
 
 COLLECTOR_USES_SHARED_PORT = False
+
+# Publish the Glidein Attributes the site
+GLIDEIN_SITE = $(SUBMIT_SITE)
+STARTD_ATTRS = GLIDEIN_Site
