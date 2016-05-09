@@ -5,6 +5,12 @@ class condor::batch_config {
     require => Package['condor']
   }
 
+  file { '/etc/condor/config.d/92_multicore_brick.config':
+    ensure  => 'present',
+    source  => 'puppet:///modules/condor/92_multicore_brick.config',
+    require => Package['condor']
+  }
+
   file {'prepare_xrootd_location':
     ensure  => 'present',
     source  => 'puppet:///modules/condor/prepare_xrootd_location',
