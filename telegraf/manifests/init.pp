@@ -29,10 +29,10 @@ class telegraf()
   service {'telegraf':
            ensure    => 'running',
            enable    => true,
-           subscribe => File['uclhc.conf']
+           subscribe => File['uclhc-telegraf.conf']
   }
 
-  file {'uclhc-telefraf.conf':
+  file {'uclhc-telegraf.conf':
     path   => '/etc/telegraf/telegraf.d/uclhc-telegraf.conf',
     ensure => 'present',
     source => 'puppet:///modules/telegraf/uclhc.conf',
