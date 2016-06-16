@@ -11,8 +11,8 @@ class grid_certs {
   }
 
   service { 'fetch-crl-boot':
-    enable => true,
-    ensure => running,
+    enable => false,
+    ensure => stopped,
     require => [Package['osg-ca-certs'], Package['fetch-crl']]
   }
   service { 'fetch-crl-cron':
