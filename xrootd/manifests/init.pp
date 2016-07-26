@@ -9,6 +9,7 @@ class xrootd (
     $disable_cms_proxy = false
   ) {
   require osg_repos
+  require ucsd_repo
   require client_tools
 
   package { 'xrootd':
