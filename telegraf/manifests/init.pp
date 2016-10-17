@@ -4,7 +4,13 @@
 #
 # This module manages telegraf
 
-class telegraf()
+class telegraf(
+  $influxdb_host = 'condorflux.t2.ucsd.edu',
+  $influxdb_port = '8086',
+  $database      = 'telegraf',
+  $username      = 'telegraf',
+  $password      = 'mypassword',
+)
 {
 
   file {'influxdb.repo':
@@ -18,13 +24,9 @@ class telegraf()
            provider => 'yum',
            name     => "telegraf",
   }
-
-
-
   
   File['influxdb.repo'] -> Package['telegraf']
   Package['telegraf'] -> Service['telegraf']
-
 
   service {'telegraf':
            ensure    => 'running',
@@ -35,7 +37,8 @@ class telegraf()
   file {'uclhc-telegraf.conf':
     path   => '/etc/telegraf/telegraf.d/uclhc-telegraf.conf',
     ensure => 'present',
-    source => 'puppet:///modules/telegraf/uclhc.conf',
+    content => template('telegraf/uclhc.conf.erb')
+    #source => 'puppet:///modules/telegraf/uclhc.conf',
   }
   
 }
