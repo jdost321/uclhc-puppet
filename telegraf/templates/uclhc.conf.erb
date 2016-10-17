@@ -59,9 +59,9 @@
   ## The full HTTP or UDP endpoint URL for your InfluxDB instance.
   ## Multiple urls can be specified as part of the same cluster,
   ## this means that only ONE of the urls will be written to each interval.
-  urls = ["http://condorflux.t2.ucsd.edu:8086"] # required
+  urls = ["http://<%= @influxdb_host %>:<%= @influxdb_port %>"] # required
   ## The target database for metrics (telegraf will create it if not exists).
-  database = "telegraf" # required
+  database = "<%= @database %>" # required
   ## Retention policy to write to.
   retention_policy = "default"
   ## Precision of writes, valid values are "ns", "us" (or "µs"), "ms", "s", "m", "h".
@@ -71,8 +71,8 @@
   ## Write timeout (for the InfluxDB client), formatted as a string.
   ## If not provided, will default to 5s. 0s means no timeout (not recommended).
   timeout = "5s"
-  Username = "telegraf"
-  Password = "mytelegr@f"
+  Username = "<%= @username %>"
+  Password = "<%= @password %>"
   ## Set the user agent for HTTP POSTs (can be useful for log differentiation)
   #user_agent = "telegraf"
   ## Set UDP payload size, defaults to InfluxDB UDP Client default (512 bytes)
