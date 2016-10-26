@@ -11,6 +11,15 @@ class prp_maddash {
     provider => 'yum'
   }
 
+  package { 'centos-release-scl':
+    ensure => 'latest',
+    provider => 'yum'
+  } ->
+  package { 'python27':
+    ensure => 'latest',
+    provider => 'yum'
+  }
+
   include prp_maddash::gridftp_config
 
   service { 'globus-gridftp-server':
