@@ -1,4 +1,6 @@
-class prp_maddash {
+class prp_maddash (
+    $disable_cron = true
+  ) {
   require osg_repos
 
   package { 'globus-gridftp-server-progs':
@@ -12,6 +14,7 @@ class prp_maddash {
   }
 
   include prp_maddash::esmond_client
+  include prp_maddash::cron_install
   include prp_maddash::gridftp_config
 
   service { 'globus-gridftp-server':
