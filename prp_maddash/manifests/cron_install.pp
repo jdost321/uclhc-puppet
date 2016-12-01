@@ -1,7 +1,7 @@
 class prp_maddash::cron_install {
-  $cron_load_cmd = $prp_maddash::disable_cron ? {
-    true => '/usr/local/bin/cron-load-gridftp.sh disable',
-    false => '/usr/local/bin/cron-load-gridftp.sh'
+  $cron_load_cmd = $prp_maddash::enable_cron ? {
+    true => '/usr/local/bin/cron-load-gridftp.sh',
+    false => '/usr/local/bin/cron-load-gridftp.sh disable'
   }
 
   file { '/usr/local/bin/timeout.sh':
