@@ -19,6 +19,12 @@ class prp_maddash::gridftp_config {
     target => '/data/esmond-gridftp',
     owner => 'root',
     group => 'root'
+  } ->
+  exec { 'get_data_file':
+    environment => [ "GLOBUS_TCP_PORT_RANGE=50000,51000" ],
+    command => '/usr/bin/globus-url-copy -vb -fast -p 16 ftp://ps-40g-gridftp.calit2.optiputer.net:2811/export/data/10G.dat file:///export/data/10G.dat',
+    creates => '/export/data/10G.dat',
+    require => Package['globus-gass-copy-progs']
   }
 
   file { '/etc/sysconfig/globus-gridftp-server':
