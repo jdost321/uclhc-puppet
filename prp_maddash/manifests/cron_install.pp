@@ -12,7 +12,7 @@ class prp_maddash::cron_install {
   file { '/usr/local/bin/custom.sh':
     ensure => 'present',
     content  => '',
-    mode => '0755'
+    mode => '0644'
   }
   file { '/usr/local/bin/cron-load-gridftp.sh':
     ensure => 'present',
