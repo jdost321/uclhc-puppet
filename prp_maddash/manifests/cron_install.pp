@@ -9,6 +9,11 @@ class prp_maddash::cron_install {
     source  => 'puppet:///modules/prp_maddash/timeout.sh',
     mode => '0755'
   }
+  file { '/usr/local/bin/custom.sh':
+    ensure => 'present',
+    content  => '',
+    mode => '0755'
+  }
   file { '/usr/local/bin/cron-load-gridftp.sh':
     ensure => 'present',
     source  => 'puppet:///modules/prp_maddash/cron-load-gridftp.sh',
