@@ -13,4 +13,5 @@ EOF
 
 wget http://67.58.50.66/cron-gridftp-transfer-mesh.sh -O /usr/local/bin/cron-gridftp-transfer-mesh.sh
 sed -i '/'"$HOSTNAME"'/s/^/#/' /usr/local/bin/cron-gridftp-transfer-mesh.sh
+chmod 755 /usr/local/bin/cron-gridftp-transfer-mesh.sh
 curl -s  http://67.58.50.66/cron-mesh-timing.sh | grep `hostname -f` > /etc/cron.d/cron-gridftp-transfer-mesh
