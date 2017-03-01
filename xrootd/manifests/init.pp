@@ -13,7 +13,7 @@ class xrootd (
   require ucsd_repo
   require client_tools
 
-  $repo = $repo ? {
+  $repo_args = $repo ? {
     'production' => [],
     'testing' => [ '--enablerepo=osg-testing' ],
     'development' => [ '--enablerepo=osg-development' ]
@@ -22,17 +22,17 @@ class xrootd (
   package { 'xrootd':
     ensure => $xrootd_version,
     provider => 'yum',
-    install_options => $repo
+    install_options => $repo_args
   }
   package { 'xrootd-voms-plugin':
     ensure => $xrootd_version,
     provider => 'yum',
-    install_options => $repo
+    install_options => $repo_args
   }
   package { 'xrootd-client':
     ensure => $xrootd_version,
     provider => 'yum',
-    install_options => $repo
+    install_options => $repo_args
   }
 
   include xrootd::base_config
