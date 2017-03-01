@@ -6,23 +6,33 @@ class xrootd (
     $xrd_dir = $fqdn,
     $update_proxy = true,
     $disable_atlas_proxy = false,
-    $disable_cms_proxy = false
+    $disable_cms_proxy = false,
+    $repo = 'production'
   ) {
   require osg_repos
   require ucsd_repo
   require client_tools
 
+  $repo = $repo ? {
+    'production' => [],
+    'testing' => [ '--enablerepo=osg-testing' ],
+    'development' => [ '--enablerepo=osg-development' ]
+  }
+
   package { 'xrootd':
     ensure => $xrootd_version,
-    provider => 'yum'
+    provider => 'yum',
+    install_options => $repo
   }
   package { 'xrootd-voms-plugin':
     ensure => $xrootd_version,
-    provider => 'yum'
+    provider => 'yum',
+    install_options => $repo
   }
   package { 'xrootd-client':
     ensure => $xrootd_version,
-    provider => 'yum'
+    provider => 'yum',
+    install_options => $repo
   }
 
   include xrootd::base_config
