@@ -25,7 +25,7 @@ class xrootd (
     install_options => $repo_args
   }
   package { 'xrootd-voms-plugin':
-    ensure => $xrootd_version,
+    ensure => 'latest',
     provider => 'yum',
     install_options => $repo_args
   }
