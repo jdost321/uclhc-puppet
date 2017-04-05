@@ -1,6 +1,4 @@
-class gwms_factory::factory::osg_repos (
-    $release = '3.3'
-  ) {
+class gwms_factory::factory::osg_repos {
   package { 'epel-release':
     ensure => 'latest',
     provider => 'rpm',
@@ -14,6 +12,6 @@ class gwms_factory::factory::osg_repos (
   package { 'osg-release':
     ensure => 'latest',
     provider => 'rpm',
-    source => "http://repo.grid.iu.edu/osg/$release/osg-$release-el$operatingsystemmajrelease-release-latest.rpm"
+    source => "http://repo.grid.iu.edu/osg/$gwms_factory::factory::osg_release/osg-$gwms_factory::factory::osg_release-el$operatingsystemmajrelease-release-latest.rpm"
   }
 }
