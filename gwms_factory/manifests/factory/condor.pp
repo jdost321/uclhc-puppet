@@ -11,4 +11,5 @@ class gwms_factory::factory::condor {
   }
 
   include gwms_factory::factory::condor::gwms_config
+  include gwms_factory::factory::condor::auth_config
 }
