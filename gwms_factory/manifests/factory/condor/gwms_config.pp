@@ -16,4 +16,22 @@ class gwms_factory::factory::condor::gwms_config {
     source => 'puppet:///modules/gwms_factory/factory/condor/11_gwms_factory_secondary_schedds.config',
     require => Package['condor']
   }
+
+  define condor_dirs {
+    file { [ "/var/lib/condor/${title}",
+        "/var/lib/condor/${title}/execute",
+        "/var/lib/condor/${title}/lock",
+        "/var/lib/condor/${title}/procd_pipe",
+        "/var/lib/condor/${title}/spool" ]:
+      ensure => directory,
+      owner => 'condor',
+      group => 'condor',
+      mode => '0755'
+    }
+  }
+
+  condor_dirs { [ 'schedd_glideins1', 'schedd_glideins2', 'schedd_glideins3', 'schedd_glideins4',
+      'schedd_glideins5', 'schedd_glideins6', 'schedd_glideins7', 'schedd_glideins8', 'schedd_glideins9' ]: 
+    require => Package['condor']
+  }
 }
