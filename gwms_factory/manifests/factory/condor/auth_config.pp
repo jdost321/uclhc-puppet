@@ -9,4 +9,8 @@ class gwms_factory::factory::condor::auth_config {
     ensure => 'present',
     content => template('gwms_factory/factory/condor/privsep_config.erb'),
   }
+  file { '/etc/condor/config.d/90_gwms_dns.config':
+    ensure => 'present',
+    content => template('gwms_factory/factory/condor/90_gwms_dns.config.erb'),
+  }
 }
