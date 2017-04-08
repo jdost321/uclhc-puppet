@@ -50,20 +50,9 @@
    <entries>
    </entries>
    <condor_tarballs>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.14.1-condor-8.4.8-x86_64_RedHat6-stripped.tar.gz" version="8.4.8,8.4.x,default"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.4.6-x86_64_RedHat6-stripped.tar.gz" version="8.4.6"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.4.4-x86_64_RedHat6-stripped.tar.gz" version="8.4.4"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.4.2-x86_64_RedHat6-stripped.tar.gz" version="8.4.2"/>
-      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.7-x86_64_RedHat5-stripped.tar.gz" version="8.3.7,8.3.x"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.7-x86_64_RedHat6-stripped.tar.gz" version="8.3.7,8.3.x"/>
-      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.2-x86_64_RedHat5-stripped.tar.gz" version="8.3.2"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.2-x86_64_RedHat6-stripped.tar.gz" version="8.3.2"/>
-      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.1-x86_64_RedHat5-stripped.tar.gz" version="8.3.1"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.1-x86_64_RedHat6-stripped.tar.gz" version="8.3.1"/>
-      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.2.8-x86_64_RedHat5-stripped.tar.gz" version="8.2.8,8.2.x,default"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.2.8-x86_64_RedHat6-stripped.tar.gz" version="8.2.8,8.2.x"/>
-      <condor_tarball arch="default" os="rhel7" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.16-1-condor-8.4.11-x86_64_RedHat7-stripped.tar.gz" version="8.4.11"/>
-      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.16-1-condor-8.4.11-x86_64_RedHat6-stripped.tar.gz" version="8.4.11"/>
+<% scope['gwms_factory::factory::tarballs'].each do |tb| -%>
+      <condor_tarball arch="<%= tb['arch'] %>" os="<%= tb['os'] %>" tar_file="<%= tb['tar_file'] %>" version="<%= tb['version'] %>"/>
+<% end -%>
    </condor_tarballs>
    <files>
       <file absfname="/etc/gwms-factory/sethome.source" after_entry="False" const="True" executable="False" period="0" untar="False" wrapper="True">

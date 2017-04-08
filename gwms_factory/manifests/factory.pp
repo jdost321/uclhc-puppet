@@ -5,7 +5,8 @@ class gwms_factory::factory (
     $factory_name = '',
     $factory_type = '',
     $GLIDEIN_REQUIRED_OS = 'rhel6',
-    $frontends = []
+    $frontends = [],
+    $tarballs = []
   ) {
   include gwms_factory::factory::osg_repos
   include gwms_factory::factory::grid_certs
