@@ -1,0 +1,232 @@
+<glidein advertise_delay="1" advertise_with_multiple="True" advertise_with_tcp="True" entry_parallel_workers="24" factory_collector="<%= @fqdn %>:9618" factory_name="<%= scope['gwms_factory::factory::factory_name'] %>" factory_versioning="False" glidein_name="gfactory_instance" loop_delay="60" restart_attempts="3" restart_interval="1800" schedd_name="schedd_glideins1@<%= @fqdn %>,schedd_glideins2@<%= @fqdn %>,schedd_glideins3@<%= @fqdn %>,schedd_glideins4@<%= @fqdn %>,schedd_glideins5@<%= @fqdn %>,schedd_glideins6@<%= @fqdn %>,schedd_glideins7@<%= @fqdn %>,schedd_glideins8@<%= @fqdn %>,schedd_glideins9@<%= @fqdn %>">
+   <log_retention>
+      <condor_logs max_days="10.0" max_mbytes="80.0" min_days="3.0"/>
+      <job_logs max_days="5.0" max_mbytes="80.0" min_days="2.0"/>
+      <summary_logs max_days="14.0" max_mbytes="80.0" min_days="3.0"/>
+      <process_logs>
+         <process_log backup_count="5" comment="reduce max_days from 7.0 to deal with v3_2 semantics 2014-02-03 --Jeff" compression="" extension="info" max_days="1.0" max_mbytes="100.0" min_days="1.0" msg_types="INFO"/>
+         <process_log backup_count="5" comment="reduce max_days from 7.0 to deal with v3_2 semantics 2014-02-03 --Jeff" compression="" extension="err" max_days="1.0" max_mbytes="100.0" min_days="1.0" msg_types="DEBUG,ERR,WARN,EXCEPTION"/>
+      </process_logs>
+   </log_retention>
+   <monitor base_dir="/var/lib/gwms-factory/web-area/monitor" flot_dir="/usr/share/javascriptrrd/flot" javascriptRRD_dir="/usr/share/javascriptrrd/js" jquery_dir="/usr/share/javascriptrrd/flot" update_thread_count="24"/>
+   <monitor_footer display_txt="" href_link=""/>
+   <security key_length="2048" pub_key="RSA" remove_old_cred_age="30" remove_old_cred_freq="24" reuse_oldkey_onstartup_gracetime="900">
+      <frontends>
+         <frontend name="CDFItaly" identity="fecdfitaly@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fecdfitaly"/>
+            </security_classes>
+         </frontend>
+         <frontend name="CIGI_FRONTEND" identity="fecigi@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fecigi"/>
+            </security_classes>
+         </frontend>
+         <frontend name="CMSG-v1_0" identity="fecmsglobal@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="cmspilot" username="fecmsglobal"/>
+            </security_classes>
+         </frontend>
+         <frontend name="CMST2UCSD" identity="feucsdt2@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feucsdt2"/>
+            </security_classes>
+         </frontend>
+         <frontend name="CMS_T0-Frontend" identity="fecmscernt0@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="cmspilot" username="fecmscernt0"/>
+            </security_classes>
+         </frontend>
+         <frontend name="CrossOSGCE" identity="feosgce@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feosgce"/>
+            </security_classes>
+         </frontend>
+         <frontend name="EngageVO-submit3" identity="ferenci@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="ferenci"/>
+            </security_classes>
+         </frontend>
+         <frontend name="Fermilab" identity="fefermi@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fefermi"/>
+            </security_classes>
+         </frontend>
+         <frontend name="Fermilab-fifebatch" identity="fefermifife@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fefermifife"/>
+            </security_classes>
+         </frontend>
+         <frontend name="GluexVO" identity="fegluex@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fegluex"/>
+            </security_classes>
+         </frontend>
+         <frontend name="LIGO" identity="feligo@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feligo"/>
+            </security_classes>
+         </frontend>
+         <frontend name="LSST" identity="felsst@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="felsst"/>
+            </security_classes>
+         </frontend>
+         <frontend name="MIS" identity="femis@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="femis"/>
+            </security_classes>
+         </frontend>
+         <frontend name="NEES" identity="fenees@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fenees"/>
+            </security_classes>
+         </frontend>
+         <frontend name="NeBioGrid" identity="fenebio@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fenebio"/>
+            </security_classes>
+         </frontend>
+         <frontend name="OSGEduUCSD" identity="feosgedu@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feosgedu"/>
+            </security_classes>
+         </frontend>
+         <frontend name="OSG_Flock" identity="feosgflock@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feosgflock"/>
+            </security_classes>
+         </frontend>
+         <frontend name="OSG_UChicago" identity="fechicago@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fechicago"/>
+            </security_classes>
+         </frontend>
+         <frontend name="OSG_XSEDE" identity="feosgxsede@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feosgxsede"/>
+            </security_classes>
+         </frontend>
+         <frontend name="SBGrid" identity="fesbgrid@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fesbgrid"/>
+            </security_classes>
+         </frontend>
+         <frontend name="UC3VO" identity="feuc3@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feuc3"/>
+            </security_classes>
+         </frontend>
+         <frontend name="UCITBOSG-itb" identity="feucitb@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feucitb"/>
+            </security_classes>
+         </frontend>
+         <frontend name="UCLHC" identity="feuclhc@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feuclhc"/>
+            </security_classes>
+         </frontend>
+         <frontend name="UCSDCMS" identity="fecmsucsd@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="cmspilot" username="fecmsucsd"/>
+            </security_classes>
+         </frontend>
+         <frontend name="UCSDRok" identity="feucsdrok@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feucsdrok"/>
+            </security_classes>
+         </frontend>
+         <frontend name="fecmsglobalbackup" identity="fecmsglobalbackup@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="cmspilot" username="fecmsglobalbackup"/>
+            </security_classes>
+         </frontend>
+         <frontend name="glowVO" identity="feglow@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feglow"/>
+            </security_classes>
+         </frontend>
+         <frontend name="glowVO2" identity="feglow@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feglow"/>
+            </security_classes>
+         </frontend>
+         <frontend name="glowVO3" identity="feglow@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="feglow"/>
+            </security_classes>
+         </frontend>
+         <frontend name="hcc-glidein" identity="unlfe@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fehcc"/>
+            </security_classes>
+         </frontend>
+         <frontend name="nanoHUB" identity="fenanohub@gfactory-1.t2.ucsd.edu">
+            <security_classes>
+               <security_class name="frontend" username="fenanohub"/>
+            </security_classes>
+         </frontend>
+      </frontends>
+   </security>
+   <stage base_dir="/var/lib/gwms-factory/web-area/stage" use_symlink="True" web_base_url="http://gfactory-1.t2.ucsd.edu/factory/stage"/>
+   <submit base_client_log_dir="/var/log/gwms-factory/client" base_client_proxies_dir="/var/lib/gwms-factory/client-proxies" base_dir="/var/lib/gwms-factory/work-dir" base_log_dir="/var/log/gwms-factory/server"/>
+   <attrs>
+      <attr name="CONDOR_ARCH" const="False" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="string" value="default"/>
+      <attr name="CONDOR_OS" const="False" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="string" value="default"/>
+      <attr name="CONDOR_VERSION" const="False" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="string" value="default"/>
+      <attr name="FactoryType" const="True" glidein_publish="True" job_publish="False" parameter="True" publish="True" type="string" value="<%= scope['gwms_factory::factory::factory_type'] %>"/>
+      <attr name="GCB_ORDER" const="True" glidein_publish="True" job_publish="False" parameter="True" publish="True" type="string" value="NONE"/>
+      <attr name="GLEXEC_JOB" const="True" glidein_publish="False" job_publish="False" parameter="True" publish="False" type="string" value="True"/>
+      <attr name="GLIDEIN_Glexec_Use" const="False" glidein_publish="True" job_publish="False" parameter="True" publish="True" type="string" value="NEVER"/>
+      <attr name="GLIDEIN_Job_Max_Time" const="False" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="int" value="34800"/>
+      <attr name="GLIDEIN_MaxMemMBs" const="True" glidein_publish="True" job_publish="False" parameter="True" publish="True" type="int" value="2500"/>
+      <attr name="GLIDEIN_Monitoring_Enabled" const="False" glidein_publish="True" job_publish="True" parameter="True" publish="True" type="string" value="False"/>
+      <attr name="GLIDEIN_REQUIRED_OS" const="True" glidein_publish="True" job_publish="False" parameter="True" publish="True" type="string" value="<%= scope['gwms_factory::factory::GLIDEIN_REQUIRED_OS'] %>"/>
+      <attr name="GLIDEIN_Req_MUPJ_gLExec" const="True" glidein_publish="True" job_publish="False" parameter="False" publish="True" type="string" value="False"/>
+      <attr name="GLIDEIN_Retire_Time_Spread" const="True" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="int" value="1200"/>
+      <attr name="GSI_DELEGATION_KEYBITS" const="True" glidein_publish="True" job_publish="False" parameter="True" publish="True" type="int" value="1024"/>
+      <attr name="MIN_DISK_GBS" const="False" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="int" value="1"/>
+      <attr name="Site_Req_Explicit_Auth" const="True" glidein_publish="True" job_publish="False" parameter="False" publish="True" type="string" value="False"/>
+      <attr name="UPDATE_COLLECTOR_WITH_TCP" const="False" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="string" value="True"/>
+      <attr name="USE_CCB" const="True" glidein_publish="True" job_publish="False" parameter="True" publish="True" type="string" value="True"/>
+      <attr name="USE_MATCH_AUTH" const="False" glidein_publish="False" job_publish="False" parameter="True" publish="True" type="string" value="True"/>
+      <attr name="VOS_USING_SE_BASEPATH" const="True" glidein_publish="True" job_publish="True" parameter="True" publish="True" type="string" value=""/>
+      <attr name="VOS_USING_SE_OTHER_SUBDIR" const="True" glidein_publish="True" job_publish="True" parameter="True" publish="True" type="string" value=""/>
+      <attr name="VOS_USING_SE_VONAME_LOWERCASE" const="True" glidein_publish="True" job_publish="True" parameter="True" publish="True" type="string" value=""/>
+   </attrs>
+   <entries>
+   </entries>
+   <condor_tarballs>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.14.1-condor-8.4.8-x86_64_RedHat6-stripped.tar.gz" version="8.4.8,8.4.x,default"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.4.6-x86_64_RedHat6-stripped.tar.gz" version="8.4.6"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.4.4-x86_64_RedHat6-stripped.tar.gz" version="8.4.4"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.4.2-x86_64_RedHat6-stripped.tar.gz" version="8.4.2"/>
+      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.7-x86_64_RedHat5-stripped.tar.gz" version="8.3.7,8.3.x"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.7-x86_64_RedHat6-stripped.tar.gz" version="8.3.7,8.3.x"/>
+      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.2-x86_64_RedHat5-stripped.tar.gz" version="8.3.2"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.2-x86_64_RedHat6-stripped.tar.gz" version="8.3.2"/>
+      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.1-x86_64_RedHat5-stripped.tar.gz" version="8.3.1"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.3.1-x86_64_RedHat6-stripped.tar.gz" version="8.3.1"/>
+      <condor_tarball arch="default" os="rhel5" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.2.8-x86_64_RedHat5-stripped.tar.gz" version="8.2.8,8.2.x,default"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.11.2-4-condor-8.2.8-x86_64_RedHat6-stripped.tar.gz" version="8.2.8,8.2.x"/>
+      <condor_tarball arch="default" os="rhel7" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.16-1-condor-8.4.11-x86_64_RedHat7-stripped.tar.gz" version="8.4.11"/>
+      <condor_tarball arch="default" os="default" tar_file="/var/lib/gwms-factory/condor/gfactory-3.2.16-1-condor-8.4.11-x86_64_RedHat6-stripped.tar.gz" version="8.4.11"/>
+   </condor_tarballs>
+   <files>
+      <file absfname="/etc/gwms-factory/sethome.source" after_entry="False" const="True" executable="False" period="0" untar="False" wrapper="True">
+         <untar_options cond_attr="TRUE"/>
+      </file>
+      <file absfname="/etc/gwms-factory/test_os.sh" after_entry="True" const="True" executable="True" period="0" untar="False" wrapper="False">
+         <untar_options cond_attr="TRUE"/>
+      </file>
+      <file absfname="/etc/gwms-factory/define_OSG_SE.sh" after_entry="True" const="True" executable="True" period="0" untar="False" wrapper="False">
+         <untar_options cond_attr="TRUE"/>
+      </file>
+      <file absfname="/etc/gwms-factory/smart_partitionable_rc.sh" after_entry="True" const="True" executable="True" period="0" untar="False" wrapper="False">
+         <untar_options cond_attr="TRUE"/>
+      </file>
+   </files>
+   <monitoring_collectors>
+   </monitoring_collectors>
+</glidein>
