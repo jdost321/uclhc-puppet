@@ -51,7 +51,7 @@
    </entries>
    <condor_tarballs>
 <% scope['gwms_factory::factory::tarballs'].each do |tb| -%>
-      <condor_tarball arch="<%= tb['arch'] %>" os="<%= tb['os'] %>" tar_file="<%= tb['tar_file'] %>" version="<%= tb['version'] %>"/>
+      <condor_tarball arch="<%= tb['arch'] %>" os="<%= tb['os'] %>" tar_file="/var/lib/gwms-factory/condor/<%= tb['tar_file'] %>" version="<%= tb['version'] %>"/>
 <% end -%>
    </condor_tarballs>
    <files>

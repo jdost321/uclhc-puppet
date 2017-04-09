@@ -6,6 +6,8 @@ class gwms_factory::factory (
     $factory_type = '',
     $GLIDEIN_REQUIRED_OS = 'rhel6',
     $frontends = [],
+    $tarball_src = 'http://gfactory-1.t2.ucsd.edu/debug/tarballs',
+    $tarball_list = [],
     $tarballs = []
   ) {
   include gwms_factory::factory::osg_repos
@@ -21,6 +23,23 @@ class gwms_factory::factory (
   file { '/etc/gwms-factory/glideinWMS.xml':
     ensure => 'present',
     content => template('gwms_factory/factory/glideinWMS.xml.erb'),
+    require => Package['glideinwms-factory']
+  }
+
+  file { '/usr/local/bin/fetch_and_strip_tarball.sh':
+    ensure => 'present',
+    source => 'puppet:///modules/gwms_factory/factory/fetch_and_strip_tarball.sh',
+    mode => '0755'
+  }
+
+  define glidein_tarball {
+    exec { "/usr/local/bin/fetch_and_strip_tarball.sh ${gwms_factory::factory::tarball_src} ${title}":
+      creates => "/var/lib/gwms-factory/condor/${title}",
+      require => File['/usr/local/bin/fetch_and_strip_tarball.sh']
+    }
+  }
+
+  glidein_tarball { $gwms_factory::factory::tarball_list:
     require => Package['glideinwms-factory']
   }
 }
