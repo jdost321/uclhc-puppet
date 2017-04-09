@@ -5,6 +5,7 @@ class gwms_factory::factory (
     $factory_name = '',
     $factory_type = '',
     $GLIDEIN_REQUIRED_OS = 'rhel6',
+    $frontend_list = [],
     $frontends = [],
     $tarball_src = 'http://gfactory-1.t2.ucsd.edu/debug/tarballs',
     $tarball_list = [],
@@ -13,6 +14,11 @@ class gwms_factory::factory (
   include gwms_factory::factory::osg_repos
   include gwms_factory::factory::grid_certs
   include gwms_factory::factory::condor
+
+  user { $gwms_factory::factory::frontend_list:
+    ensure => present,
+    managehome => true
+  }
 
   package { 'glideinwms-factory':
     ensure => $gwms_factory::factory::gwms_version,
