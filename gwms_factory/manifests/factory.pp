@@ -52,6 +52,6 @@ class gwms_factory::factory (
   }
 
   glidein_tarball { $gwms_factory::factory::tarball_list:
-    require => Package['glideinwms-factory']
+    subscribe => Package['glideinwms-factory']
   }
 }
