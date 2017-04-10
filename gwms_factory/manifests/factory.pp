@@ -26,6 +26,12 @@ class gwms_factory::factory (
     require => Class['gwms_factory::factory::condor']
   }
 
+  service { 'httpd':
+    enable => 'true',
+    ensure => 'running',
+    require => Package['gwms-factory'],
+  }
+
   file { '/etc/gwms-factory/glideinWMS.xml':
     ensure => 'present',
     content => template('gwms_factory/factory/glideinWMS.xml.erb'),
