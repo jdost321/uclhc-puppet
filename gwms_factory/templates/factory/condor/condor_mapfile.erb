@@ -1,5 +1,5 @@
 <% scope['gwms_factory::factory::frontends'].each do |fe| -%>
-GSI "<%= fe['dn_regex'] %>" <%= fe['username'] %>
+GSI "<%= fe['dn_regex'] %>" <%= fe['identity'] %>
 <% end -%>
 GSI (.*) anonymous
 FS (.*) \1

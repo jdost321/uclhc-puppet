@@ -29,7 +29,7 @@ class gwms_factory::factory (
   service { 'httpd':
     enable => 'true',
     ensure => 'running',
-    require => Package['gwms-factory'],
+    require => Package['glideinwms-factory']
   }
 
   file { '/etc/gwms-factory/glideinWMS.xml':

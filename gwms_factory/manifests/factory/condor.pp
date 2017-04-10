@@ -16,4 +16,12 @@ class gwms_factory::factory::condor {
 
   include gwms_factory::factory::condor::gwms_config
   include gwms_factory::factory::condor::auth_config
+
+  service { 'condor':
+    enable => 'true',
+    ensure => 'running',
+    require => Package['condor', 'condor-cream-gahp'],
+    subscribe => Class['gwms_factory::factory::condor::auth_config',
+      'gwms_factory::factory::condor::gwms_config']
+  }
 }
