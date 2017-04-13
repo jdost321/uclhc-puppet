@@ -14,6 +14,7 @@ class gwms_factory::factory (
   include gwms_factory::factory::osg_repos
   include gwms_factory::factory::grid_certs
   include gwms_factory::factory::condor
+  include gwms_factory::factory::entry_repo
 
   user { $gwms_factory::factory::frontend_list:
     ensure => present,
