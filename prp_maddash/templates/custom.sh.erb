@@ -1,0 +1,5 @@
+<% scope['prp_maddash::servers'].each do |sv| -%>
+<% if sv != @fqdn -%>
+/usr/local/bin/timeout.sh -t 2000 globus-url-copy -vb -fast -p 16 ftp://<%= sv %>:2811/export/data/10G.dat file:///export/data/10G.out
+<% end -%>
+<% end -%>

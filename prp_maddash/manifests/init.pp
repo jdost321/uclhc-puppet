@@ -1,5 +1,6 @@
 class prp_maddash (
-    $enable_cron = false
+    $enable_cron = false,
+    $servers = []
   ) {
   require osg_repos
 
