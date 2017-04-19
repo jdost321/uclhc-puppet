@@ -11,9 +11,14 @@ class prp_maddash::cron_install {
   }
   file { '/usr/local/bin/custom.sh':
     ensure => 'present',
-    content  => '',
+    source  => 'puppet:///modules/prp_maddash/custom.sh',
     mode => '0644'
+  } ~>
+  exec { 'comment_out_myself':
+    command => 'sed -i "/^[^#].*$HOSTNAME/s/^/#/" /usr/local/bin/custom.sh',
+    refreshonly => true
   }
+
   file { '/usr/local/bin/cron-load-gridftp.sh':
     ensure => 'present',
     source  => 'puppet:///modules/prp_maddash/cron-load-gridftp.sh',
