@@ -1,0 +1,3 @@
+<% scope['gwms_factory::factory::frontends'].each do |fe| -%>
+GSI_DAEMON_NAME=$(GSI_DAEMON_NAME),<%= fe['dn'] %>
+<% end -%>
