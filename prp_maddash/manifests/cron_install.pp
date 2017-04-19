@@ -15,7 +15,7 @@ class prp_maddash::cron_install {
     mode => '0644'
   } ~>
   exec { 'comment_out_myself':
-    command => 'sed -i "/^[^#].*$HOSTNAME/s/^/#/" /usr/local/bin/custom.sh',
+    command => '/bin/sed -i "/^[^#].*$HOSTNAME/s/^/#/" /usr/local/bin/custom.sh',
     refreshonly => true
   }
 
