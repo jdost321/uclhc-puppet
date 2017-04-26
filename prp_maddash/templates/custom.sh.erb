@@ -1,3 +1,7 @@
+#!/bin/bash
+export GLOBUS_TCP_PORT_RANGE=50000,51000
+export GLOBUS_TCP_SOURCE_RANGE=50000,51000
+
 <% scope['prp_maddash::servers'].each do |sv| -%>
 <% if sv == @fqdn -%>
 #/usr/local/bin/timeout.sh -t 2000 globus-url-copy -vb -fast -p 16 ftp://<%= sv %>:2811/export/data/10G.dat file:///export/data/10G.out
