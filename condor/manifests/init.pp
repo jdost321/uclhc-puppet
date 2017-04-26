@@ -3,6 +3,7 @@ class condor ($condor_version = 'latest',
               $submit_site_name = '',
               $ganglia_server = 'uclhc-fe-1.t2.ucsd.edu',
               $flavor = 'submit',
+              $uaf_site = 'UAF',
               $vo = 'atlas')
 {
   require osg_repos
