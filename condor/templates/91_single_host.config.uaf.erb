@@ -1,0 +1,16 @@
+CONDOR_HOST = glidein-collector.t2.ucsd.edu
+
+UID_DOMAIN = t2.ucsd.edu
+
+DAEMON_LIST = $(DAEMON_LIST), STARTD
+
+ALLOW_ADMINISTRATOR = condor@$(UID_DOMAIN)/*
+ALLOW_OWNER = condor@$(UID_DOMAIN)/*
+ALLOW_READ = *
+ALLOW_DAEMON = $(ALLOW_WRITE), submit-side@matchsession/*$(UID_DOMAIN)
+
+COLLECTOR_USES_SHARED_PORT = False
+
+# Publish the Glidein Attributes the site
+GLIDEIN_SITE = $(SUBMIT_SITE)
+STARTD_ATTRS = GLIDEIN_Site
