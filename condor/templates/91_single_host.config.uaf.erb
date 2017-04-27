@@ -1,5 +1,7 @@
 CONDOR_HOST = glidein-collector.t2.ucsd.edu
 
+UID_DOMAIN = t2.ucsd.edu
+
 DAEMON_LIST = $(DAEMON_LIST), STARTD
 
 ALLOW_ADMINISTRATOR = condor@$(UID_DOMAIN)/*
