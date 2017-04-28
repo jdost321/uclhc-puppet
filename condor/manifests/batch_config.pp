@@ -1,11 +1,11 @@
 class condor::batch_config {
-  $single_host = $condor::flavor ? {
-    'uaf' => '91_single_host.config.uaf.erb',
-    default => '91_single_host.config.erb'
+  $local_batch = $condor::flavor ? {
+    'uaf' => '91_local_batch.config.uaf.erb',
+    default => '91_local_batch.config.erb'
   }
-  file { '/etc/condor/config.d/91_single_host.config':
+  file { '/etc/condor/config.d/91_local_batch.config':
     ensure  => 'present',
-    content => template("condor/${single_host}"),
+    content => template("condor/${local_batch}"),
     require => Package['condor']
   }
 
