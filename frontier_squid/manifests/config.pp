@@ -11,14 +11,14 @@ class frontier_squid::config ()
         owner  => 'squid',
         source => 'puppet:///modules/frontier_squid/customize.sh',
         group  => 'squid',
-        mode   => 0755
+        mode   => '0755'
   }
   file {'squid.conf':
     ensure => present,
     path   => '/etc/squid/squid.conf',
     owner  => 'squid',
     group  => 'squid',
-    mode   => 0444
+    mode   => '0444'
   }
   exec { 'customize.sh':
         command => '/etc/squid/customize.sh',

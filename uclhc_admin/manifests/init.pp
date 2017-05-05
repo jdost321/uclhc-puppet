@@ -7,12 +7,12 @@ class uclhc_admin (
     ensure => "directory",
     owner  => "root",
     group  => "root",
-    mode   => '700'
+    mode   => '0700'
   } ->
   file { "/root/.ssh/authorized_keys":
     ensure => "present",
     source => "puppet:///modules/uclhc_admin/$rootpubkeys",
-    mode => '600',
+    mode => '0600',
     owner  => "root",
     group  => "root"
   }
