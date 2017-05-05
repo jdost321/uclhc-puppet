@@ -1,4 +1,4 @@
-class uclhc-admin (
+class uclhc_admin (
     $rootpubkeys = 'root.ssh',
     $uclhcprofile =  'uclhc.sh'
   ) {
@@ -7,18 +7,18 @@ class uclhc-admin (
     ensure => "directory",
     owner  => "root",
     group  => "root",
-    mode   => 700
+    mode   => '0700'
   } ->
   file { "/root/.ssh/authorized_keys":
     ensure => "present",
-    source => "puppet:///modules/uclhc-admin/$rootpubkeys",
-    mode => 600,
+    source => "puppet:///modules/uclhc_admin/$rootpubkeys",
+    mode => '0600',
     owner  => "root",
     group  => "root"
   }
       
   file { "/etc/profile.d/uclhc.sh":
     ensure => "present",
-    source => "puppet:///modules/uclhc-admin/$uclhcprofile"
+    source => "puppet:///modules/uclhc_admin/$uclhcprofile"
   }
 }

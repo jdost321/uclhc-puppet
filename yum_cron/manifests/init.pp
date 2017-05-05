@@ -1,4 +1,4 @@
-class yum-cron {
+class yum_cron {
   package { 'yum-cron':
     ensure => 'latest',
     provider => 'yum'
@@ -6,14 +6,14 @@ class yum-cron {
 
   file { '/etc/sysconfig/yum-cron':
     ensure  => 'present',
-    source  => 'puppet:///modules/yum-cron/yum-cron',
+    source  => 'puppet:///modules/yum_cron/yum-cron',
     require => Package['yum-cron'],
     notify => Service['yum-cron']
   }
 
   file { '/etc/yum/yum-cron.conf':
     ensure  => 'present',
-    source  => 'puppet:///modules/yum-cron/yum-cron.conf',
+    source  => 'puppet:///modules/yum_cron/yum-cron.conf',
     require => Package['yum-cron'],
     notify => Service['yum-cron']
   }

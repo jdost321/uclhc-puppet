@@ -1,5 +1,5 @@
-# frontier-squid/manifests/install.pp
-# == Class: frontier-squid::install ===========================
+# frontier_squid/manifests/install.pp
+# == Class: frontier_squid::install ===========================
 #
 # This module manages frontier-squid installation and auxilary software
 # ===========================================
@@ -14,7 +14,7 @@
 # Specifies if a package is wanted installed or latest. Only this two vaules are allowed.
 #
 #
-class frontier-squid::install (
+class frontier_squid::install (
     $package_ensure = "installed",
     )
 {
