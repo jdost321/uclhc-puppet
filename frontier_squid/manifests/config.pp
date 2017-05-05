@@ -41,7 +41,7 @@ class frontier_squid::config ()
              
   File['customize.sh']  -> File['squid.conf']
   File['customize.sh']  ~> Exec['customize.sh']
-  Exec ['customize.sh'] ~> Exec['reload']
+  Exec['customize.sh'] ~> Exec['reload']
   Service['frontier-squid'] -> Exec['reload']
   
 }
