@@ -4,7 +4,7 @@
 
 # ignore private stuff
 *.pem
-uclhc-admin/files/
+uclhc_admin/files/
 
 # ignore puppetlab installed modules
 accounts/
