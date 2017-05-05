@@ -1,15 +1,15 @@
-# == Class: frontier-squid::config
+# == Class: frontier_squid::config
 #
 # This module manages the basic configuration for the frontier-squid
 #
-class frontier-squid::config ()
+class frontier_squid::config ()
 {
 
   file { 'customize.sh':
         ensure => present,
         path   => '/etc/squid/customize.sh',
         owner  => 'squid',
-        source => 'puppet:///modules/frontier-squid/customize.sh',
+        source => 'puppet:///modules/frontier_squid/customize.sh',
         group  => 'squid',
         mode   => 0755
   }
