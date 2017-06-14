@@ -1,1 +1,1 @@
-START = DESIRED_Sites=?="<%= scope['condor::uaf_site'] %>"
+START = stringListMember("<%= scope['condor::uaf_site'] %>",DESIRED_Sites,",")
