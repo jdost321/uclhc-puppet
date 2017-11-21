@@ -2,14 +2,16 @@
 #
 # This module manages the basic configuration for the frontier-squid
 #
-class frontier_squid::config ()
+class frontier_squid::config (
+    $acl_NET_LOCAL_src = '10.0.0.0/8 172.16.0.0/12 192.168.0.0/16',
+)
 {
 
   file { 'customize.sh':
         ensure => present,
         path   => '/etc/squid/customize.sh',
         owner  => 'squid',
-        source => 'puppet:///modules/frontier_squid/customize.sh',
+        content => template('frontier_squid/customize.sh.erb'),
         group  => 'squid',
         mode   => '0755'
   }

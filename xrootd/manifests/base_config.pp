@@ -1,4 +1,11 @@
 class xrootd::base_config {
+  file {'sysconfig-xrootd':
+ 	path => '/etc/sysconfig/xrootd',
+	owner => 'root',
+	group => 'root',
+	mode => '0644',
+	source => 'puppet:///modules/xrootd/xrootd',
+  }
   file_line { 'xrd_rdr_opt':
     path => '/etc/sysconfig/xrootd',
     line => 'XROOTD_RDR_OPTIONS="-l /var/log/xrootd/xrootd.log -c /etc/xrootd/xrootd-clustered.cfg -k fifo"',

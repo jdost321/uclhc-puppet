@@ -7,8 +7,13 @@ class xrootd (
     $update_proxy = true,
     $disable_atlas_proxy = false,
     $disable_cms_proxy = false,
-    $repo = 'production'
-  ) {
+    $repo = 'production',
+
+## SITE IN A BOX PARAMETERS
+    $xrootd_siab = 'FALSE'
+  ) 
+
+{
   require osg_repos
   require ucsd_repo
   require client_tools
@@ -36,22 +41,18 @@ class xrootd (
   }
 
   include xrootd::base_config
-  include xrootd::cluster_config
   include xrootd::proxy_config
   include xrootd::grid_proxy
   include xrootd::service_cert
   include xrootd::user_enviroment
+  if ($xrootd_siab) == 'TRUE' {
+	include xrootd::siab_server
+	include xrootd::siab_config
+  }
+  else {
+	include xrootd::basic_server
+        include xrootd::cluster_config
+  }
 
-  service { 'xrootd':
-    enable => 'true',
-    ensure => 'running',
-    require => Package['xrootd', 'xrootd-voms-plugin'],
-    subscribe => Class['xrootd::base_config', 'xrootd::cluster_config', 'xrootd::proxy_config', 'xrootd::service_cert']
-  }
-  service { 'cmsd':
-    enable => 'true',
-    ensure => 'running',
-    require => Package['xrootd'],
-    subscribe => Class['xrootd::base_config', 'xrootd::cluster_config']
-  }
+
 }

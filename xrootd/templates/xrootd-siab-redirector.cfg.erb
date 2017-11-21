@@ -1,0 +1,20 @@
+#MANAGED BY PUPPET, DO NOT EDIT HERE
+
+
+all.export /uclhc
+oss.localroot /data
+#
+all.role manager
+#
+cms.allow host *
+
+all.manager <%= @fqdn %> 3122
+#all.manager localhost 3121
+xrd.port 1095
+#cms.space min 2g
+
+all.manager meta all  uclhc-fe-1.t2.ucsd.edu 3122
+xrootd.redirect uclhc-fe-1.t2.ucsd.edu:1094 ? /data
+all.adminpath /var/spool/xrootd
+all.pidpath /var/run/xrootd
+
