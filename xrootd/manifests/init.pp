@@ -5,8 +5,8 @@ class xrootd (
     $meta_cmsd_port = '3121',
     $xrd_dir = $fqdn,
     $update_proxy = true,
-    $disable_atlas_proxy = false,
-    $disable_cms_proxy = false,
+    $enable_atlas_proxy = false,
+    $enable_cms_proxy = false,
     $repo = 'production',
 
 ## SITE IN A BOX PARAMETERS

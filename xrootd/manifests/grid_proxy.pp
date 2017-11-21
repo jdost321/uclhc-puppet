@@ -7,13 +7,13 @@ class xrootd::grid_proxy {
     mode => '0755'
   }
 
-  $atlas_arg = $xrootd::disable_atlas_proxy ? {
-    true => '',
-    false => 'atlas'
+  $atlas_arg = $xrootd::enable_atlas_proxy ? {
+    true => 'atlas',
+    false => ''
   }
-  $cms_arg = $xrootd::disable_cms_proxy ? {
-    true => '',
-    false => 'cms'
+  $cms_arg = $xrootd::enable_cms_proxy ? {
+    true => 'cms',
+    false => ''
   }
   $refresh_args = join([$atlas_arg,$cms_arg], ' ')
 

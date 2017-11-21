@@ -30,13 +30,13 @@ class xrootd::base_config {
     require => Package['xrootd']
   }
 
-  $atlas_proxy_name = $xrootd::disable_atlas_proxy ? {
-    true => '',
-    false => 'atlas_proxy'
+  $atlas_proxy_name = $xrootd::enable_atlas_proxy ? {
+    true => 'atlas_proxy',
+    false => ''
   }
-  $cms_proxy_name = $xrootd::disable_cms_proxy ? {
-    true => '',
-    false => 'cms_proxy'
+  $cms_proxy_name = $xrootd::enable_cms_proxy ? {
+    true => 'cms_proxy',
+    false => ''
   }
   $xrd_instances = join(['rdr','srv',$atlas_proxy_name,$cms_proxy_name], ' ')
 
