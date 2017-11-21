@@ -40,7 +40,6 @@ class xrootd (
     install_options => $repo_args
   }
 
-  include xrootd::base_config
   include xrootd::proxy_config
   include xrootd::grid_proxy
   include xrootd::service_cert
@@ -50,6 +49,7 @@ class xrootd (
 	include xrootd::siab_config
   }
   else {
+        include xrootd::base_config
 	include xrootd::basic_server
         include xrootd::cluster_config
   }
