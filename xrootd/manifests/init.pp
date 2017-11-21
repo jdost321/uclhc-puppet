@@ -8,9 +8,6 @@ class xrootd (
     $enable_atlas_proxy = false,
     $enable_cms_proxy = false,
     $repo = 'production',
-
-## SITE IN A BOX PARAMETERS
-    $xrootd_siab = 'FALSE'
   ) 
 
 {
@@ -43,16 +40,15 @@ class xrootd (
   include xrootd::grid_proxy
   include xrootd::service_cert
   include xrootd::user_enviroment
-  if ($xrootd_siab) == 'TRUE' {
-	include xrootd::siab_server
-	include xrootd::siab_config
-  }
-  else {
+
+  if ($operatingsystemmajrelease == '6') {
         include xrootd::base_config
 	include xrootd::basic_server
         include xrootd::cluster_config
         include xrootd::proxy_config
   }
-
-
+  else {
+	include xrootd::siab_server
+	include xrootd::siab_config
+  }
 }
