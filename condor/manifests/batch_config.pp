@@ -1,6 +1,7 @@
 class condor::batch_config {
   $local_batch = $condor::flavor ? {
     'uaf' => '91_local_batch.config.uaf.erb',
+    'transfer' => '91_local_batch.config.transfer.erb',
     default => '91_local_batch.config.erb'
   }
   file { '/etc/condor/config.d/91_local_batch.config':
