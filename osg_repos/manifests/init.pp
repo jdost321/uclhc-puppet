@@ -14,6 +14,6 @@ class osg_repos (
   package { 'osg-release':
     ensure => 'latest',
     provider => 'rpm',
-    source => "http://repo.grid.iu.edu/osg/$release/osg-$release-el$operatingsystemmajrelease-release-latest.rpm"
+    source => "http://repo.opensciencegrid.org/osg/$release/osg-$release-el$operatingsystemmajrelease-release-latest.rpm"
   }
 }
